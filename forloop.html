@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For loop in JS</title>
+</head>
+<body>
+  <select id="date"></select>
+  <select id="month"></select>
+  <select id="year"></select>
+<select id="city"></select>
+
+  <script>
+    //date
+  dateList=`<option selected disabled>DD</option>`
+  for(let i=1; i<=31; i++){
+    dateList+=`<option value="${i}">${i}</option>`;
+    //dateList+="<option value="+i+">"+i+">+"</option>";
+  }
+  document.getElementById('date').innerHTML=dateList;
+
+
+  //month
+  monthList=`<option selected disabled> MM </option>`
+  for(let i=1; i<=12; i++){
+    monthList+=`<option value=${i}>${i}</option>`;
+  }
+    document.getElementById('month').innerHTML=monthList;
+
+
+    //year
+    let yearList=`<option selected disabled>YYYY</option>`;
+    let i=new Date().getFullYear();
+    for(i; i>=1950; i--){
+      yearList+=`<option value="${i}">${i}</option>`;
+    }
+    document.getElementById('year').innerHTML=yearList;
+
+    let cities=["indore", "bhopal", "ujjain", "dhar", "Khargone"];
+    cityList=`<option selected disabled> City</option>`;
+    for(let i=0; i<cities.length; i++){
+cityList+=`<option value="${cities[i]}">${cities[i]}</option>`;
+    }
+    document.getElementById('city').innerHTML=cityList;
+</script>
+</body>
+
+</html>

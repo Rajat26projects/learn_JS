@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>while loop</title>
+
+</head>
+<body>
+  <select id="date"></select>
+  <select id="month"></select>
+  <select id="year"></select>
+
+  <script>
+    //dateList
+    dateList=`<option selected disabled> DD </option>`;
+    let i=1;
+    while(i<=31){
+      dateList+=`<option value="${i}">${i}</option>`;
+      i++;
+    }
+    document.getElementById('date').innerHTML=dateList;
+
+
+    monthList=`<option selected disabled> MM </option>`;
+    let m=1;
+    while(m<=12){
+    monthList+=`<option value="${m}">${m}</option>`;
+    m++;
+  }
+    document.getElementById('month').innerHTML=monthList;
+
+    yearList=`<option selected disabled> YYYY </option>`;
+    let y=new Date().getFullYear();
+while(y>=1850){
+  yearList+=`<option value="${y}">${y}</option>`;
+  y--;
+}
+document.getElementById('year').innerHTML=yearList;
+
+  </script>
+</body>
+</html>
