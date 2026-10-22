@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nested loop</title>
+</head>
+<body>
+  <ul id="empdata"></ul>
+
+  <script>
+let employeeDetails=[{Name:"Kailash", id:1234, Dept:"CSE", Designation:"HOD in CSE", DOB:"19/08/1987", Gender:"Male",  salary:90000, education:"Phd in CSE" },{Name:"Ankit",id:1034, Dept:"CSE", Designation:"Proff in CSE", DOB:"11/06/1997", Gender:"Male",  salary:45000, education:"MTech in CSE"}];
+
+let data=``;
+for(let index in employeeDetails){
+  data+=`----------------${index}----------------`;
+for(let key in employeeDetails[index]){
+  data+=`<li><span style="color:red; font-weight:900">${key}</span>:${employeeDetails[index][key]}</li>`;
+}
+}
+
+document.getElementById('empdata').innerHTML=data;
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For of loop</title>
+</head>
+<body>
+  <table id="prodtable" border="1"></table>
+
+  <script>
+let prodinfo=[1234, "Lenovo ideaPad slim3", "Laptop", 63000, "Silver", "16GB", "SSD"];
+
+  data=`<tr><th>ID</th><th>Product Name</th><th>Type</th><th>Price</th><th>Color</th><th>ram</th><th>SSD</th></tr>`;
+
+  for(let arrvar of prodinfo){
+    data+=`<td>${arrvar}</td>`
+  }
+
+  document.getElementById('prodtable').innerHTML=data;
+  </script>
+</body>
+</html>

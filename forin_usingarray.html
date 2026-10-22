@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For-in loop</title>
+  
+</head>
+<body>
+  <ul id="empdata"></ul>
+</body>
+<script>
+  let empdetails=["Rajiv Verma",1234,"HOD CSE","Male"];
+
+  let data=``;
+  for(key in empdetails){
+    data+=`<li><span style="color:red; font-weight:900;">${key}</span>:${empdetails[key]}</li>`;
+  }
+
+  document.getElementById('empdata').innerHTML=data;
+</script>
+</html>
