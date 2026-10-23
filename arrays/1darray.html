@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array using for loop</title>
+</head>
+<body>
+  <label>Choose State:</label>
+  <select id="state"></select><br><br>
+
+  <label>City:</label>
+  <ul id="city"></ul>
+
+  <label><span style="color:red; font-weight:900; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:25px;">Famous Places of America</span></label>
+  <table id="famousPlaces" border="8"><tr><th>Places</th></tr></table><br><br>
+
+  <label><span style="color:red; font-weight:900; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:25px;">Cities with Telephonic Codes:</span></label>
+  <table id="telecode" border="5"><tr><th>City</th><th>Telephone Code</th></tr></table>
+
+  <script>
+    stateList=`<option selected disabled> State </option>`;
+    cityList=`<li>city</li>`;
+    famousPlacesList=`<tr><th>Famous_Places</th></tr>`;
+    codeList=`<tr><th>City</th><th>Telephone Code</th></tr>`;
+
+    let state2=["Alabama","Alaska","Arizona","Arkansas","California","Colorado,","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+
+    for(let i=0; i<state2.length; i++){
+      stateList+=`<option value=${state2[i]}> ${state2[i]} </option>`;
+    }
+
+    document.getElementById('state').innerHTML=stateList;
+
+    const majorUSCities = [
+  "New York, NY","Los Angeles, CA","Chicago, IL","Houston, TX",
+  "Phoenix, AZ",
+  "San Antonio, TX",
+  "Philadelphia, PA",
+  "San Diego, CA",
+  "Dallas, TX",
+  "San Jose, CA",
+  "Austin, TX",
+  "Jacksonville, FL",
+  "Fort Worth, TX",
+  "Columbus, OH",
+  "Charlotte, NC",
+  "Indianapolis, IN",
+  "San Francisco, CA",
+  "Seattle, WA",
+  "Denver, CO",
+  "Washington, DC",
+  "Boston, MA",
+  "El Paso, TX",
+  "Nashville, TN",
+  "Oklahoma City, OK",
+  "Las Vegas, NV",
+  "Portland, OR",
+  "Detroit, MI",
+  "Memphis, TN",
+  "Louisville, KY",
+  "Baltimore, MD"
+];
+
+for(city in majorUSCities ){
+  cityList+=`<li> ${majorUSCities[city]} </li>`;
+}
+
+document.getElementById('city').innerHTML=cityList;
+
+let famousPlacesUSA = [
+    "Statue of Liberty, New York",
+    "Grand Canyon, Arizona",
+    "Yellowstone National Park, Wyoming/Montana/Idaho",
+    "Times Square, New York",
+    "Golden Gate Bridge, San Francisco",
+    "Disney World, Florida",
+    "Las Vegas Strip, Nevada",
+    "Mount Rushmore, South Dakota",
+    "Niagara Falls, New York",
+    "White House, Washington D.C.",
+    "Hollywood Sign, Los Angeles",
+    "Central Park, New York",
+    "Empire State Building, New York",
+    "Yosemite National Park, California",
+    "Chicago Navy Pier, Illinois",
+    "Alcatraz Island, California",
+    "Miami Beach, Florida",
+    "Rock and Roll Hall of Fame, Ohio",
+    "Smithsonian Museums, Washington D.C.",
+    "Hawaii Volcanoes National Park, Hawaii"
+];
+
+
+
+for(let famous of famousPlacesUSA){
+famousPlacesList+=`<tr><td>${famous}</td><tr>`;
+}
+
+document.getElementById('famousPlaces').innerHTML=famousPlacesList;
+
+
+let cityCode = [
+    ["Agar Malwa", "07362"],
+    ["Alirajpur", "07394"],
+    ["Ashoknagar", "07543"],
+    ["Balaghat", "07632"],
+    ["Barwani", "07290"],
+    ["Betul", "07141"],
+    ["Bhind", "07534"],
+    ["Bhopal", "0755"],
+    ["Burhanpur", "07325"],
+    ["Chhatarpur", "07682"],
+    ["Chhindwara", "07162"],
+    ["Damoh", "07812"],
+    ["Datia", "07522"],
+    ["Dewas", "07272"],
+    ["Dhar", "07292"],
+    ["Guna", "07542"],
+    ["Gwalior", "0751"],
+    ["Harda", "07577"],
+    ["Indore", "0731"],
+    ["Jabalpur", "0761"],
+    ["Jhabua", "07392"],
+    ["Katni", "07622"],
+    ["Khandwa", "0733"],
+    ["Khargone", "07282"],
+    ["Mandla", "07646"],
+    ["Mandsaur", "07422"],
+    ["Morena", "07532"],
+    ["Narmadapuram", "07574"],
+    ["Neemuch", "07423"],
+    ["Panna", "07732"],
+    ["Raisen", "07482"],
+    ["Rajgarh", "07372"],
+    ["Ratlam", "07412"],
+    ["Rewa", "07662"],
+    ["Sagar", "07582"],
+    ["Satna", "07672"],
+    ["Sehore", "07562"],
+    ["Seoni", "07692"],
+    ["Shahdol", "07652"],
+    ["Shajapur", "07364"],
+    ["Sheopur", "07530"],
+    ["Shivpuri", "07492"],
+    ["Sidhi", "07822"],
+    ["Singrauli", "07805"],
+    ["Tikamgarh", "07683"],
+    ["Ujjain", "0734"],
+    ["Vidisha", "07592"]
+];
+
+for(let city in cityCode){
+codeList+=`<tr><td>${cityCode[city][0]}</td><td>${cityCode[city][1]}</td></tr>`;
+  }
+document.getElementById('telecode').innerHTML=codeList;
+  </script>
+</body>
+</html>
