@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Functions</title>
+</head>
+<body>
+  <label>original Array:</label>
+  <span id="original"></span>
+  <script>
+let empinfo=["Rajat Agrawal", "101", 20, "25LPA", "19/06/2005" , "Male"];
+originalList=``;
+for(let i=0; i<empinfo.length; i++){
+  originalList+=`${empinfo[i]}  `;
+}
+console.log(originalList);
+document.getElementById('original').innerHTML=originalList;
+
+empinfo[3]="30LPA"
+originalList=``;
+for(let i=0; i<empinfo.length; i++){
+  originalList+=`${empinfo[i]}  `;
+}
+console.log(originalList);
+document.getElementById('original').innerHTML=originalList;
+
+
+empinfo.push("Indore","M.P.","India");
+console.log(empinfo);
+
+empinfo.pop();
+console.log(empinfo);
+
+empinfo.shift();
+console.log(empinfo);
+
+empinfo.unshift("Rajat Agrawal", "1");
+console.log(empinfo);
+  </script>
+  
+</body>
+</html>
