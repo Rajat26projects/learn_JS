@@ -1,0 +1,455 @@
+<!-- My Original written BY me
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resaturant Bill using objects</title>
+</head>
+<body>
+  <div>
+  <h1>Hotel Crown Palace</h1>
+  <h2>Hotel-BILL</h2>
+  <p>No.10, 2nd cross, 6th main, Indore-560009 Phone:080-4124050 /51 </p>
+  <h4>SAC Code:996311</h4>
+  <h3>Website:<h5>www.hotelcrownpalace.net/in</h5></h3>
+  <h4>GST No. 29AABAS8754M1ZP</h4>
+  <h4>Date:"09/01/2026"</h4>
+</div>
+<ul id="visitor"></ul>
+<table id="order"><tr><th>Food-Item</th><th>Price</th></tr></table>
+
+<div>
+  <h3>Please Deposit your room keys.</h3>
+  <h3>All deposits subject to Indore Jurisdiction</h3>
+  <p>LO12120001</p>
+  <p>Rc No-544410418</p>
+  <p>S Tax No-AABAS8754MSD002</p>
+</div>
+
+
+<h3>Guest's Signature</h3>
+<h1>THANK YOU, PLEASE VISIT AGAIN</h1>
+<h3>POA Signature</h3>
+<script>
+  
+  v1=``;
+  let visitorDetails={
+    Name:"Devendra Sharma", Address:"12 Sector-B Krishna Colony Hyderabad", "Mob-No":9876543210, "Bill-No":4651, "Room-No":303, "Check-in-Date & Time":"09/01/2026 08:10", "Check-out Date & Time:":"10/01/26 11:25", "Tariff:":950, Days: 2, 
+  }
+  for(let vis in visitorDetails){
+    v1+=`<li>${vis} ${visitorDetails[vis]}</li>`
+  }
+  document.getElementById('visitor').innerHTML=v1;
+
+  t1=``;
+  let foodItems={"Sweet-Corn":210, "Manchurian-semi-dry":250, "Butter-Naan":120, "Butter-Panner Masala":280, "Dal-fry":310, "Jeera-Rice":290, "Masala-Papad":210, "Rasmalai":410, "Total":2080};
+
+  for(let item in foodItems){
+    t1+=`<tr><td>${item}</td><td>${foodItems[item]}</td><tr>`;
+  }
+      document.getElementById('order').innerHTML=t1;
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Crown Palace - Bill</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 30px 15px;
+      background-color: #e9edf2;
+      color: #263449;
+      font-family: Arial, sans-serif;
+    }
+
+    /* 1. Hotel Header */
+    #bill-header {
+      max-width: 800px;
+      margin: auto;
+      padding: 25px;
+      text-align: center;
+      background-color: #142d4e;
+      color: #fffaf0;
+      border-top: 5px solid #c8a45d;
+      border-radius: 10px 10px 0 0;
+    }
+
+    #bill-header h1 {
+      margin: 0 0 8px;
+      color: #e3c477;
+      letter-spacing: 2px;
+    }
+
+    #bill-header h2 {
+      margin: 8px 0;
+      letter-spacing: 3px;
+    }
+
+    #bill-header p {
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    #bill-header h4 {
+      margin: 8px;
+      font-weight: normal;
+    }
+
+    #bill-header a {
+      color: #e3c477;
+      text-decoration: none;
+    }
+
+    /* Main invoice paper */
+    .bill-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 25px;
+      background-color: #fffdf8;
+      box-shadow: 0 5px 20px #00000012;
+    }
+
+    .section-title {
+      padding-bottom: 8px;
+      color: #142d4e;
+      border-bottom: 2px solid #c8a45d;
+    }
+
+    /* 2. Visitor Details */
+    #visitor {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 0;
+      list-style: none;
+    }
+
+    #visitor li {
+      padding: 12px;
+      background-color: #f2f5f8;
+      border-left: 3px solid #c8a45d;
+      border-radius: 4px;
+      overflow-wrap: anywhere;
+      font-size: 14px;
+    }
+
+    /* 3. Food Order Table */
+    #order {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    #order th {
+      padding: 13px;
+      background-color: #142d4e;
+      color: white;
+    }
+
+    #order td {
+      padding: 12px;
+      border-bottom: 1px solid #e0e4e8;
+    }
+
+    #order th:last-child,
+    #order td:last-child {
+      text-align: right;
+    }
+
+    #order tbody tr:nth-child(even) {
+      background-color: #f5f6f8;
+    }
+
+    #order .total-row {
+      background-color: #f4ead2;
+      color: #142d4e;
+      font-weight: bold;
+    }
+
+    #order .grand-total {
+      background-color: #142d4e;
+      color: #ffffff;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    /* 4. Hotel Footer */
+    #bill-footer {
+      margin-top: 30px;
+      padding: 18px;
+      background-color: #f2f5f8;
+      border-top: 2px solid #c8a45d;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    #bill-footer h3 {
+      color: #142d4e;
+    }
+
+    #bill-footer p {
+      margin: 5px;
+    }
+
+    /* 5. Signature Section */
+    #signature-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-top: 35px;
+    }
+
+    #signature-section .signature {
+      width: 42%;
+      padding-top: 12px;
+      border-top: 1px solid #7c8794;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    #signature-section h2 {
+      color: #142d4e;
+      font-size: 19px;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .print-button {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      background-color: #142d4e;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .print-button:hover {
+      background-color: #244b76;
+    }
+
+    @media (max-width: 550px) {
+      body {
+        padding: 10px 5px;
+      }
+
+      .bill-container {
+        padding: 15px;
+      }
+
+      #bill-header {
+        padding: 20px 12px;
+      }
+
+      #bill-header h1 {
+        font-size: 24px;
+      }
+
+      #visitor {
+        grid-template-columns: 1fr;
+      }
+
+      #order th,
+      #order td {
+        padding: 9px 6px;
+        font-size: 13px;
+      }
+
+      #signature-section {
+        flex-wrap: wrap;
+      }
+
+      #signature-section .signature {
+        width: 44%;
+      }
+
+      #signature-section h2 {
+        width: 100%;
+        order: 3;
+      }
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: white;
+      }
+
+      #bill-header,
+      .bill-container {
+        max-width: none;
+        box-shadow: none;
+      }
+
+      #bill-header {
+        border-radius: 0;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      #order th,
+      #order .total-row,
+      #order .grand-total {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .print-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 1. Hotel Header -->
+  <header id="bill-header">
+    <h1>Hotel Crown Palace</h1>
+    <h2>HOTEL BILL</h2>
+
+    <p>
+      No. 10, 2nd Cross, 6th Main, Indore<br>
+      Phone: 080-4124050 / 51
+    </p>
+
+    <h4>SAC Code: 996311</h4>
+    <h4>
+      Website:
+      <a href="https://www.hotelcrownpalace.net/in">
+        www.hotelcrownpalace.net/in
+      </a>
+    </h4>
+    <h4>GST No.: 29AABAS8754M1ZP</h4>
+    <h4>Date: 09/01/2026</h4>
+  </header>
+
+  <main class="bill-container">
+
+    <!-- 2. Visitor Details -->
+    <h3 class="section-title">Guest Details</h3>
+    <ul id="visitor"></ul>
+
+    <!-- 3. Food Order Table -->
+    <h3 class="section-title">Food Order Details</h3>
+
+    <table id="order">
+      <thead>
+        <tr>
+          <th>Food Item</th>
+          <th>Price (₹)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <!-- 4. Hotel Footer -->
+    <footer id="bill-footer">
+      <h3>Please Deposit Your Room Keys</h3>
+      <p>All deposits subject to Indore jurisdiction.</p>
+      <p>LO12120001</p>
+      <p>Rc No.: 544410418</p>
+      <p>S Tax No.: AABAS8754MSD002</p>
+    </footer>
+
+    <!-- 5. Signature Section -->
+    <section id="signature-section">
+      <div class="signature">Guest's Signature</div>
+
+      <h2>THANK YOU,<br>PLEASE VISIT AGAIN</h2>
+
+      <div class="signature">POA Signature</div>
+    </section>
+
+  </main>
+
+  <button class="print-button" onclick="window.print()">
+    Print Bill
+  </button>
+
+  <script>
+    let visitorDetails = {
+      Name: "Devendra Sharma",
+      Address: "12 Sector-B Krishna Colony Hyderabad",
+      "Mob-No": 9876543210,
+      "Bill-No": 4651,
+      "Room-No": 303,
+      "Check-in-Date & Time": "09/01/2026 08:10",
+      "Check-out-Date & Time": "10/01/2026 11:25",
+      "Room Tariff per Day": 950,
+      Days: 2
+    };
+
+    let v1 = "";
+
+    for (let vis in visitorDetails) {
+      v1 += `<li><strong>${vis}:</strong> ${visitorDetails[vis]}</li>`;
+    }
+
+    document.getElementById("visitor").innerHTML = v1;
+
+    let foodItems = {
+      "Sweet Corn": 210,
+      "Manchurian Semi-Dry": 250,
+      "Butter Naan": 120,
+      "Butter Paneer Masala": 280,
+      "Dal Fry": 310,
+      "Jeera Rice": 290,
+      "Masala Papad": 210,
+      "Rasmalai": 410
+    };
+
+    let t1 = "";
+    let foodTotal = 0;
+
+    for (let item in foodItems) {
+      t1 += `<tr>
+        <td>${item}</td>
+        <td>₹${foodItems[item].toFixed(2)}</td>
+      </tr>`;
+
+      foodTotal += foodItems[item];
+    }
+
+    let roomTotal = visitorDetails["Room Tariff per Day"] *
+                    visitorDetails.Days;
+
+    let grandTotal = foodTotal + roomTotal;
+
+    t1 += `<tr class="total-row">
+      <td>Food Total</td>
+      <td>₹${foodTotal.toFixed(2)}</td>
+    </tr>`;
+
+    t1 += `<tr>
+      <td>Room Charges (${visitorDetails.Days} days)</td>
+      <td>₹${roomTotal.toFixed(2)}</td>
+    </tr>`;
+
+    t1 += `<tr class="grand-total">
+      <td>Grand Total (before taxes)</td>
+      <td>₹${grandTotal.toFixed(2)}</td>
+    </tr>`;
+
+    document.querySelector("#order tbody").innerHTML = t1;
+  </script>
+
+</body>
+</html>
