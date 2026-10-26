@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Json</title>
+</head>
+<body>
+  <script>
+    let obj={Name:"Ram Sharma", Age:21, Email:"ram@gmail.com", Mob:9876543210, dob:"12/01/2002"};
+    console.log(typeof(obj));
+    console.log(obj);
+
+    let tojson=JSON.stringify(obj);
+    console.log(typeof(tojson));
+    console.log(tojson);
+
+   let newobj= JSON.parse(tojson);
+    console.log(typeof(newobj));
+    console.log(newobj);
+    console.log(newobj.Name);
+    console.log(obj.Name);
+
+
+  </script>
+</body>
+</html>
