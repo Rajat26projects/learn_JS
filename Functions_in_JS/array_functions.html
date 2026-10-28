@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Functions in HTML</title>
+</head>
+<body>
+
+  <script>
+  //array Functions
+  //create an array
+let arr=["Rajat",21,"25LPA", 101];
+console.log(arr);
+console.log(arr.length);
+
+//array push
+arr.push('Indore');
+console.log(arr);
+console.log(arr.length);
+
+//array pop();
+arr.pop();
+console.log(arr);
+console.log(arr.length);
+
+//arr shift
+arr.shift();
+console.log(arr);
+console.log(arr.length);
+
+//arr unshift
+arr.unshift("Rajat", "Agrawal");
+console.log(arr);
+console.log(arr.length);
+
+//for each
+console.log("For Each Loop")
+arr.forEach((a)=>{console.log(a)});
+arr.forEach((a)=>{return a+5});
+console.log(arr);
+
+//Array map
+let  arrmap=arr.map((a)=>{console.log(a+5)});
+console.log(arrmap);
+
+arrmap=arr.map((a)=>{return a*10});
+console.log(arrmap);
+
+let newArray=[1,2,3,4,5,6];
+console.log(newArray);
+
+let even=newArray.filter((num)=>{return num%2===0});
+console.log(even);
+
+let odd=newArray.filter((x)=>{return x%2!==0});
+console.log(odd);
+
+let sumNewArray=newArray.reduce((a,b)=>a+b,0);
+console.log(sumNewArray);
+  </script>
+  
+
+</body>
+</html>
