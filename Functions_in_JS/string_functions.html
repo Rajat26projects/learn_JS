@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String Functions</title>
+</head>
+<body>
+  <script>
+    let str="Rajat Agrawal";
+    console.log(str);
+
+    //charAt
+    console.log(str.charAt(0));
+    console.log(str.charAt(10));
+
+//includes
+console.log(str.includes("Rajat"));
+console.log(str.includes("Indore"));
+
+//indexof
+console.log(str.indexOf('R'));
+console.log(str.indexOf('A'));
+
+//slice
+console.log(str.slice(0,3));
+console.log(str.slice(3,6));
+
+//tolowerCase
+console.log(str.toLowerCase());
+str=str.toLowerCase();
+console.log(str);
+
+//touppercase
+console.log(str.toUpperCase());
+str=str.toUpperCase();
+console.log(str);
+
+//split
+let url="https://www.abc.com/profile/rajverma";
+console.log(url.split('/'));
+console.log(url.split('.'));
+
+
+  </script>
+</body>
+</html>
