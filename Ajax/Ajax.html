@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajax in html</title>
+</head>
+<body>
+  <button onclick="loadData()">click me</button>
+  <div id="Recdata"></div><br><br>
+  <div id="Recdata2"></div>
+
+  <script>
+    function loadData(){
+      var xhr=new XMLHttpRequest();
+      //console.log(xhr);
+
+      //xhr.open('GET','data',true);
+      xhr.open('GET','https://dummyjson.com/products',true);
+
+      xhr.onload=function(){
+if(xhr.status==200){
+  //console.log(xhr.responseText);
+  let data=JSON.parse(xhr.responseText);
+  var data1="",data2="";
+  for(key of data.products){
+    data1+=`id:${key.id} and name:${key.title}<br>`;
+  }
+  document.getElementById('Recdata').innerHTML=data1;
+
+  for(key2 of data.products){
+    data2+=`category:${key2.category} and price:${key2.price}<br>`;
+  }
+  document.getElementById('Recdata2').innerHTML=data2;
+}
+      }
+      xhr.send();
+    }
+  </script>
+</body>
+</html>
